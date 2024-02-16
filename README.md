@@ -1,3 +1,6 @@
+# Deployed Link:
+https://auntie-kitchen.onrender.com/ping
+
 # List of recipes
 1. Purpose of project
     - The purpose of creating this ASAP project is solely because I am a fan of cooking and it is one of my personal interests and this would help resolve problem of many people who are confused to decide their meal of the day.
