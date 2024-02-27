@@ -1,0 +1,19 @@
+{
+  "name": "s49_auntieee_kitchen",
+  "version": "1.0.0",
+  "description": "1. Purpose of project\r     - The purpose of creating this ASAP project is solely because I am a fan of cooking and it is one of my personal interests and this would help resolve problem of many people who are confused to decide their meal of the day.\r 2. Briefing\r     - This project contains \r         1. signup/login page.\r         2. search element.\r         3. filtered search.\r         4. list components.\r 3. Features\r     - This website will give me a list of recipes anyone could follow according to the filter selected or when any key ingredient searched by the user.\r     - This project will also have a feature where the user can see the ingredents used in the recipe as a preview before the detailed recipe so that it makes it easier for them to decide on it based on the ingredients available.\r     - Another key element of this project is when the user inputs any ingredient that they are allergic to during the signup, then during the preview of the ingredient is shown then the ingredient that they are allergic to will be highlighted with a warning sign.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
