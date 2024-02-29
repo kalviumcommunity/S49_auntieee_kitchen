@@ -15,14 +15,12 @@ function App() {
       <main>
         <Intro/>
       </main>
-
       <footer>
         <div className='footer-container'>
         <p className='footer'>This web application is based on website: <a href="https://hemamagesh.com/">hemamagesh.com</a></p> <br />
         <p className='footer'>check the website by clicking on the link to get detailed recipes and insights on yoga, crafts, baking and much more. ❤️</p>
         </div>
       </footer>
-      
     </>
   )
 }
