@@ -7,6 +7,7 @@ import './App.css'
 function App() {
   return (
     <>
+    
       <Navbar/>
       <div id='img-container'></div>
       <header>
