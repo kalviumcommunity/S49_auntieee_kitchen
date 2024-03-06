@@ -1,15 +1,13 @@
-import express from "express";
-const routes = express.Router();
-
+const express = require("express");
+const Routes = express.Router();
 
 //GET request
-routes.get('/', (req, res) => {
+Routes.get('/', (req, res) => {
     try {
-        res.status(200).json({"message": "all good"});
-    }
-    catch (error) {
+        res.json("sdsd");
+    } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
-export default routes
+module.exports = Routes
