@@ -1,5 +1,5 @@
 const express = require("express");
-const routes = require("./routes/routes.js");
+const Routes = require("./routes/routes.js");
 const ConnectDB = require("./db/connect.js");
 const dotenv = require("dotenv");
 
@@ -7,7 +7,7 @@ const port =  process.env.PORT;
 const app = express();
 dotenv.config();
 
-app.use("/api", routes);
+app.use("/api", Routes);
 
 const start =  () => {
     try{
