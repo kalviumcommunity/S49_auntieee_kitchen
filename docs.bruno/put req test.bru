@@ -6,6 +6,14 @@ meta {
 
 put {
   url: http://localhost:3000/api/data/11
-  body: none
+  body: json
   auth: none
+}
+
+body:json {
+    {
+      "username": "put",
+      "email": "put@example.com",
+      "age": 11
+    }
 }
