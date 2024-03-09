@@ -1,8 +1,18 @@
 const express = require("express");
 const Routes = express.Router();
-const data = require("../data.json");
 const bodyParser = require("body-parser");
+const UserModel = require("../model/schema");
+const cors = require('cors');
+Routes.use(cors());
+
 Routes.use(bodyParser.json());
+
+Routes.get("/getUsers", async(req, res) => {
+    await UserModel.find()
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+
+})
 
 //GET request
 Routes.get('/', (req, res) => {
@@ -63,5 +73,7 @@ Routes.delete("/data/:id", (req, res) => {
         res.status(404).json({ error: 'Item not found' });
     }
 });
+
+
 
 module.exports = Routes

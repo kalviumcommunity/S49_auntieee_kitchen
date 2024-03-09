@@ -5,7 +5,7 @@
     font-family: "Hammersmith One", sans-serif;
 }
 
-header{
+#main-content{
     height: 85vh;
     width: 100%;
     background-image: url("../images/header-image.jpeg");
@@ -23,13 +23,6 @@ h1{
     top: 30%;
     font-size: 90px;
     color: white;
-}
-
-h4{
-    font-size: 30px;
-    color: white;
-    position: absolute;
-   
 }
 
 #explore{

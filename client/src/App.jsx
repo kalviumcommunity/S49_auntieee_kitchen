@@ -1,20 +1,20 @@
 import React from 'react';
 import './App.css';
-import Header from './components/header';
-import Cards from './components/cards';
-
+import { Route, Routes } from 'react-router-dom';
+import Userdata from './components/displayUsers';
+import LandingPage from './components/landingpage';
 function App() {
 
   return (
     <>
-      <Header/>
-      <div id='heading'>Homemade Delights Glossary</div>
-      <hr />
-      <main>
-        <Cards/>
-      </main>
+      <Routes>
+        <Route path='/' element = {<LandingPage/>} />
+        <Route path='/users' element = {<Userdata/>} />
+      </Routes>
     </>
   )
 }
+
+
 
 export default App
