@@ -1,12 +1,18 @@
 import React from "react";
-import "./header.css"
+import "./header.css";
+import Navbar from "./navbar";
 function Header(){
     return(
         <>
         <header>
-            <h1>THE TASTE OF HOMEMADE FOOD</h1>
-            <h4>THE MODERN INDIAN AUNTIE'S KITCHEN</h4>
-            <button id="explore">Explore Dishes</button>
+            <div>
+                <Navbar/>
+            </div>
+            <div id="main-content">
+                <h1>THE TASTE OF HOMEMADE FOOD</h1>
+                <button id="explore">Explore Dishes</button>
+            </div>
+
         </header>
         </>
     )
