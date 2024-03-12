@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Userdata from './components/displayUsers';
 import LandingPage from './components/landingpage';
 import UpdateUsers from './components/updateUsers';
+import CreateUsers from './components/createUsers';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element = {<LandingPage/>} />
         <Route path='/users' element = {<Userdata/>} />
         <Route path='/users/update/:id' element = {<UpdateUsers/>} />
+        <Route path='/users/create' element = {<CreateUsers/>} />
         
         
       </Routes>

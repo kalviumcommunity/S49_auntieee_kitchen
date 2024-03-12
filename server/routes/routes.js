@@ -25,6 +25,12 @@ Routes.get('/', (req, res) => {
     }
 });
 
+// POST request
+Routes.post('/createUser', async(req, res) => {
+    await UserModel.create(req.body)
+    .then(users => res.json(users))
+    .catch(err => console.log(err))
+});
 
 
 Routes.get('/getUsers/:id', async(req, res) => {
@@ -34,6 +40,7 @@ Routes.get('/getUsers/:id', async(req, res) => {
     .catch(err => res.json(err))
 });
 
+//PUT request
 Routes.put("/updateUser/:id", async (req, res) => {
     const id = req.params.id;
     try {
