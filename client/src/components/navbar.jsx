@@ -12,6 +12,10 @@ function Navbar() {
       <Link to="/users" >
         <button id="user-details">Get Users</button>
       </Link>
+      
+      <Link to="/users/create">
+        <button id="create-users">Sign in</button>
+      </Link>
       </nav>
     </div>
   </>
