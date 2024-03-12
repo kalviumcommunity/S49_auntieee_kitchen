@@ -3,8 +3,10 @@ const Routes = express.Router();
 const bodyParser = require("body-parser");
 const UserModel = require("../model/schema");
 const cors = require('cors');
+//to access the server side in out frontend 
 Routes.use(cors());
 
+// to pass the dat in the json format
 Routes.use(bodyParser.json());
 
 Routes.get("/getUsers", async(req, res) => {
@@ -23,57 +25,39 @@ Routes.get('/', (req, res) => {
     }
 });
 
-// POST request
-Routes.post('/data', (req, res) => {
-    // console.log(req.body)
+
+
+Routes.get('/getUsers/:id', async(req, res) => {
+    const id = req.params.id;
+    await UserModel.findById({_id:id})
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+});
+
+Routes.put("/updateUser/:id", async (req, res) => {
+    const id = req.params.id;
     try {
-        const newItem = {
-            id: data.length + 1, 
-            username: req.body.username,
-            email: req.body.email,
-            age: req.body.age
-        };
-        data.push(newItem);
-        res.status(201).json(newItem);
+      const updatedUser = await UserModel.findByIdAndUpdate(
+        id,
+        {
+          username: req.body.username,
+          email: req.body.email,
+          age: req.body.age,
+        },
+        { new: true }
+      );
+      res.json(updatedUser);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal Server Error' });
+      res.json(error);
     }
-});
-
-// PUT request
-Routes.put('/data/:id', (req, res) => {
-    const itemId = parseInt(req.params.id);
-    const updatedItem = {
-        username: req.body.username,
-        email: req.body.email,
-        age: req.body.age
-    };
-    const itemIndex = data.findIndex(item => item.id === itemId);
-
-    if (itemIndex !== -1) {
-        // Update the existing item with the new data
-        data[itemIndex] = { ...data[itemIndex], ...updatedItem };
-        res.json(data[itemIndex]);
-    } else {
-        res.status(404).json({ error: 'Item not found' });
-    }
-});
+  });
 
 // DELETE request
-Routes.delete("/data/:id", (req, res) => {
-    const itemId = parseInt(req.params.id);
-    const itemIndex = data.findIndex(item => item.id === itemId);
-
-    if (itemIndex !== -1) {
-        // Remove the item from the array
-        const deletedItem = data.splice(itemIndex, 1)[0];
-        res.send({ message: 'Item deleted successfully', data: deletedItem });
-    } else {
-        res.status(404).json({ error: 'Item not found' });
-    }
+Routes.delete("/deleteUser/:id", (req, res) => {
+    const id = req.params.id;
+    UserModel.findByIdAndDelete({_id: id})
+    .then(res => res.json(res))
+    .catch(err => res.json(err))
 });
-
-
 
 module.exports = Routes
