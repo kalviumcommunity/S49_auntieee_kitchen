@@ -27,3 +27,14 @@ h4{
     border: none;
     
 }
+
+#create-users{
+    position: absolute;
+    right: 150px;
+    top: 15px;
+    height: 45px;
+    width: 95px;
+    background-color: rgb(37, 37, 37);
+    color: white;
+    border: none;
+}
