@@ -3,11 +3,19 @@ const Routes = express.Router();
 const bodyParser = require("body-parser");
 const UserModel = require("../model/schema");
 const cors = require('cors');
+const Joi = require('joi');
+
 //to access the server side in out frontend 
 Routes.use(cors());
 
 // to pass the dat in the json format
 Routes.use(bodyParser.json());
+
+const createUserSchema = Joi.object({
+    username: Joi.string().alphanum().min(3).max(30).required(),
+    email: Joi.string().email().required(),
+    age: Joi.number().integer().min(1).max(100).required()
+});
 
 Routes.get("/getUsers", async(req, res) => {
     await UserModel.find()
@@ -27,6 +35,9 @@ Routes.get('/', (req, res) => {
 
 // POST request
 Routes.post('/createUser', async(req, res) => {
+    const { error } = createUserSchema.validate(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
     await UserModel.create(req.body)
     .then(users => res.json(users))
     .catch(err => console.log(err))
