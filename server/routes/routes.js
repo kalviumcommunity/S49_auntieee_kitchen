@@ -13,9 +13,10 @@ Routes.use(bodyParser.json());
 
 const createUserSchema = Joi.object({
     username: Joi.string().alphanum().min(3).max(30).required(),
-    email: Joi.string().email().required(),
+    password: Joi.string().alphanum().required(),
     age: Joi.number().integer().min(1).max(100).required()
 });
+
 
 Routes.get("/getUsers", async(req, res) => {
     await UserModel.find()
@@ -59,7 +60,7 @@ Routes.put("/updateUser/:id", async (req, res) => {
         id,
         {
           username: req.body.username,
-          email: req.body.email,
+          password: req.body.password,
           age: req.body.age,
         },
         { new: true }

@@ -7,7 +7,7 @@ function UpdateUsers() {
     //this will take the id from the url and store it in the variable id
     const {id} = useParams()
     const [username, setUsername] = useState("")
-    const [email, setEmail] = useState("")
+    const [password, setpassword] = useState("")
     const [age, setAge] = useState("")
     const navigate = useNavigate()
 
@@ -15,7 +15,7 @@ function UpdateUsers() {
         axios.get('http://localhost:3000/api/getUsers/' + id)
         .then(users => {
            setUsername(users.data.username)
-           setEmail(users.data.email)
+           setpassword(users.data.password)
            setAge(users.data.age)
            
         })      
@@ -27,7 +27,7 @@ function UpdateUsers() {
         try {
           const response = await axios.put(`http://localhost:3000/api/updateUser/${id}`, {
             username,
-            email,
+            password,
             age,
           });
           console.log(response);
@@ -56,14 +56,14 @@ function UpdateUsers() {
                     />
                 </div>
                 <div>
-                    <label htmlFor="">Email</label>
+                    <label htmlFor="">password</label>
                     <br />
                     <input 
-                        type="text" 
-                        placeholder="Enter valid email" 
+                        type="password" 
+                        placeholder="Enter valid password" 
                         className="input-field"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={password}
+                        onChange={(e) => setpassword(e.target.value)}
                         required
                     />
 

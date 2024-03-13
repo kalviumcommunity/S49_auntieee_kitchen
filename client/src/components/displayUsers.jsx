@@ -30,7 +30,7 @@ function Userdata() {
           <thead>
             <tr>
               <th>Username</th>
-              <th>Email</th>
+              <th>password</th>
               <th>Age</th>
               <th>Action</th>
             </tr>
@@ -40,7 +40,7 @@ function Userdata() {
             users.map(user => {
                 return <tr key={user._id}>
                 <td>{user.username}</td>
-                <td>{user.email}</td>
+                <td>{user.password}</td>
                 <td>{user.age}</td>
                 <td>
                     <Link to={`/users/update/${user._id}`}>

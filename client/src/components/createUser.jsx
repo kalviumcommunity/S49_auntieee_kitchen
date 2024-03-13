@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 function CreateUsers() {
     const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
+    const [password, setpassword] = useState("");
     const [age, setAge] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const result = await axios.post("http://localhost:3000/api/createUser", {username, email, age});
+            const result = await axios.post("http://localhost:3000/api/createUser", {username, password, age});
             console.log(result);
             navigate("/")
         } catch (err) {
@@ -38,14 +38,14 @@ function CreateUsers() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="password">password</label>
                         <br />
                         <input
-                            type="text"
-                            placeholder="Enter valid email"
+                            type="password"
+                            placeholder="Enter valid password"
                             className="input-field"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={password}
+                            onChange={(e) => setpassword(e.target.value)}
                             required
                         />
                     </div>
