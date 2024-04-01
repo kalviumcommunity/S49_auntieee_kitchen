@@ -1,4 +1,8 @@
 *{
-  text-decoration:none ;
+  text-decoration:none;
   color: rgb(32, 32, 32);
+}
+
+a{
+  color: black;
 }

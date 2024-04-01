@@ -1,7 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-
+import LogoutButton from "./logoutButton";
 
 function Navbar() {
   return(
@@ -16,6 +16,8 @@ function Navbar() {
       <Link to="/users/create">
         <button id="create-users">Sign in</button>
       </Link>
+
+      <LogoutButton />
       </nav>
     </div>
   </>
