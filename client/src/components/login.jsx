@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import "./feature.css";
+import { useState } from "react";
+import "./feature.css"; // Adjust the path to your CSS file if needed
 import axios from "axios";
+import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 
 function LoginUser() {
@@ -14,12 +15,18 @@ function LoginUser() {
         try {
             const response = await axios.post("http://localhost:3000/api/loginUser", { username, password });
             console.log(response);
-            navigate("/landingPage");
+            if (response.status === 200) { // Assuming 200 means successful login, adjust as needed
+                Cookies.set('username', username, { expires: 7 });
+                navigate("/landingPage");
+            } else {
+                setError("Login failed. Please try again."); // Handle unexpected response status
+            }
         } catch (err) {
             if (err.response && err.response.status === 401) {
                 setError("Username or password is incorrect.");
             } else {
                 console.log(err);
+                setError("An unexpected error occurred. Please try again later."); // Handle unexpected errors
             }
         }
     };
@@ -55,7 +62,7 @@ function LoginUser() {
                     </div>
                     {error && <div className="error">{error}</div>}
                     <div id="log">
-                        <button id="login-btn">
+                        <button type="submit" id="login-btn"> {/* Specify type="submit" */}
                             Login
                         </button>
                     </div>
