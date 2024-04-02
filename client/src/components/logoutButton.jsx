@@ -7,7 +7,7 @@ const LogoutButton = () => {
 
 
   const handleLogout = () => {
-    Cookies.remove('username');
+    Cookies.remove('token');
   };
 
   return (
