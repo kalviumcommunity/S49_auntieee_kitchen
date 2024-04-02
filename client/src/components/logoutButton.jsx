@@ -1,7 +1,6 @@
-import React from 'react';
 import Cookies from 'js-cookie';
 import "./navbar.css"
-import {useNavigate,Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const LogoutButton = () => {
 
