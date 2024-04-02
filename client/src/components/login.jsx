@@ -14,9 +14,9 @@ function LoginUser() {
         e.preventDefault();
         try {
             const response = await axios.post("http://localhost:3000/api/loginUser", { username, password });
-            console.log(response);
-            if (response.status === 200) { 
-                Cookies.set('username', username, { expires: 7 });
+            if (response.status === 200) {
+                const token = response.data.token; 
+                Cookies.set('token', token, { expires: 7 }); 
                 navigate("/landingPage");
             } else {
                 setError("Login failed. Please try again."); 
@@ -30,7 +30,6 @@ function LoginUser() {
             }
         }
     };
-
     return (
         <div id="login">
             <form onSubmit={handleSubmit}>
