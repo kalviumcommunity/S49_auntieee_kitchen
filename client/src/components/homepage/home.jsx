@@ -1,8 +1,6 @@
-// Home.jsx
 import React from "react";
-import "./header.css";
-import Navbar from "./navbar";
-import CarouselComponent from "./CarouselComponent"; // Import the CarouselComponent
+import Nav from "../navbar landing/nav";
+import CarouselComponent from "../carousel/CarouselComponent"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cookies from 'js-cookie';
 
@@ -12,10 +10,10 @@ function Home() {
   return (
     <>
       <div>
-        <Navbar />
+        <Nav/>
       </div>
       <div className="main-page-contents">
-        <CarouselComponent /> {/* Add the CarouselComponent here */}
+        <CarouselComponent />
       </div>
     </>
   );

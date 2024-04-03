@@ -3,12 +3,9 @@ import Header from './header';
 import Cards from './cards';
 import { Link } from 'react-router-dom';
 import "./landingpage.css";
-import Cookies from 'js-cookie';
-
 
 
 function LandingPage() {
-  console.log(Cookies.get("username"),"value")
   return (
     <>
         <Link to="/landingPage">
@@ -23,7 +20,5 @@ function LandingPage() {
     </>
   )
 }
-
-
 
 export default LandingPage

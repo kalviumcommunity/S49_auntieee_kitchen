@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import "./feature.css"
+import { useEffect, useState } from "react";
+import "../login signin logout/feature.css"
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
