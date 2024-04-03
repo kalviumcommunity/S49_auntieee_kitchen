@@ -3,9 +3,11 @@ const express = require("express");
 const Routes = express.Router();
 const bodyParser = require("body-parser");
 const UserModel = require("../model/schema");
+const DishesModel = require('../model/dishes')
 const cors = require('cors');
 const Joi = require('joi');
 const jwt = require('jsonwebtoken');
+
 
 // Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
@@ -40,9 +42,21 @@ const createUserSchema = Joi.object({
     age: Joi.number().integer().min(1).max(100).required()
 });
 
+const createDishesSchema = Joi.object({
+    name: Joi.string().required(),
+    category: Joi.string().required(),
+    created_by: Joi.string().required()
+});
+
 // GET route to fetch all users (Example of unprotected route)
 Routes.get("/getUsers", async(req, res) => {
     await UserModel.find()
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+});
+
+Routes.get("/getDishes", async(req, res) => {
+    await DishesModel.find()
     .then(users => res.json(users))
     .catch(err => res.json(err))
 });
@@ -54,6 +68,8 @@ Routes.get('/getUsers/:id', verifyToken, async(req, res) => {
     .then(users => res.json(users))
     .catch(err => res.json(err))
 });
+
+
 
 // POST route for user creation (Example of unprotected route)
 Routes.post('/createUser', async (req, res) => {
@@ -71,6 +87,19 @@ Routes.post('/createUser', async (req, res) => {
         // If the username doesn't exist, create the new user
         const newUser = await UserModel.create(req.body);
         res.json(newUser);
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send('Internal server error');
+    }
+});
+
+Routes.post('/createDishes', async (req, res) => {
+    const { error } = createDishesSchema.validate(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
+    try {
+        const newdish = await DishesModel.create(req.body);
+        res.json(newdish);
     } catch (err) {
         console.error(err);
         return res.status(500).send('Internal server error');

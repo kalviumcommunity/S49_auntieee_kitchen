@@ -1,12 +1,12 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import ExampleCarouselImage from './ExampleCarouselImage';
-import './home.css'; // Import the CSS file
+import '../homepage/home.css'; 
 
 function CarouselComponent() {
   return (
     <div className="carousel-container">
-      <Carousel interval={2000}> {/* Set interval to 2000 milliseconds (2 seconds) */}
+      <Carousel interval={2000}> 
         <Carousel.Item>
           <ExampleCarouselImage
             imageUrl="https://images.unsplash.com/photo-1606914469633-bd39206ea739?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
