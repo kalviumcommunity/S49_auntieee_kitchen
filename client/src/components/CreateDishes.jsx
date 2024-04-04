@@ -49,7 +49,6 @@ function CreateDishes() {
                             required
                         />
                     </div>
-                    {/* {error && <div className="error">{error}</div>} */}
                     <div id="sigh">
                         <button id="signin-btn">
                             Submit
