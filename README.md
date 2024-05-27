@@ -5,3 +5,7 @@
         1. signup/login page.
         2. search element.
         3. list components.
+
+3. Frontend deployed link:
+    https://xyz-one-self.vercel.app/
+    

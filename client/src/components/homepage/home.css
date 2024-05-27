@@ -1,0 +1,29 @@
+/* carousel.css */
+
+.carousel-container {
+  width: 100%; 
+  margin: 0 auto;
+}
+
+.carousel-caption p {
+  font-size: 16px;
+}
+
+.example-carousel-image img {
+  width: 100%;
+  height: 80vh; /* Adjust height as needed */
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  padding: 10px;
+}
+
+.overlay p {
+  margin: 0;
+}
